@@ -273,9 +273,9 @@ module baseholder()
 	translate([1+22.5+stretchdistance,3+54.5,8.9])
 		cube([1.5,6,8.85]);
 	translate([2.5+53+stretchdistance,3,8.9])
-		cube([6,5,8.85]);
+		cube([5,5,8.85]);
 	translate([2.5+53+stretchdistance,3+54.5,8.9])
-		cube([6,5,8.85]);
+		cube([5,5,8.85]);
 }
 
 module megacart()
