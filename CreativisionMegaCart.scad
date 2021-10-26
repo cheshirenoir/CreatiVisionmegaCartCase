@@ -224,6 +224,39 @@ module cartbaseprescrew ()
     translate([19.8-wallthickness,52.7-wallthickness,wallthickness])
         rotate([0,180,0])
             screwsupport2();
+	translate([0,12,0])
+		truss();
+	translate([0,(63-wallthickness*2)-12,0])
+		truss();
+	translate([12,0,0])
+		brace();
+	translate([36,0,0])
+		brace();
+	translate([60,0,0])
+		brace();
+	translate([84,0,0])
+		brace();
+}
+
+module truss ()
+{
+	rotate([0,180,0])
+		translate([(80+stretchdistance-(wallthickness*2))*-1,0,0])
+		{
+			sphere(wallthickness);
+			rotate([0,90,0])
+				cylinder(80-(wallthickness*2)+stretchdistance,wallthickness,wallthickness);
+		}
+}
+
+module brace ()
+{
+	rotate([0,0,180])
+		translate([0,0,0])
+		{
+			rotate([90,0,0])
+				cylinder(63-wallthickness*2,wallthickness,wallthickness);
+		}
 }
 
 module cartbase ()
@@ -243,6 +276,7 @@ module cartbase ()
 		baseholder();
 		megacart();
 	}
+	
 }
 
 module topholder()
@@ -270,7 +304,7 @@ module baseholder()
 	translate([1+stretchdistance,15,8.9])
 		cube([6,1.5,8.85]);
 	translate([23.5+stretchdistance,56,8.9])
-		cube([1.5,6,8.85]);
+		cube([1.5,5.5,8.85]);
 	translate([55.5+stretchdistance,2,8.9])
 		cube([5,5,8.85]);
 	translate([55.5+stretchdistance,56,8.9])
@@ -299,7 +333,7 @@ module switchcut()
 }
 
 //Comment out this line to just print the base
-carttop();
+//carttop();
 
 //Comment out this line to just print the top
 cartbase();
